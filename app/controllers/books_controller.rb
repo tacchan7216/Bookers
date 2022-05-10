@@ -1,27 +1,34 @@
 class BooksController < ApplicationController
   def new
-    @books = Book.new
+   @book = Book.new
   end
 
   def create
-    books = Book.new(books_params)
-    books.save
-    redirect_to 'new'
+    #データを受け取り新規登録するためのインスタンス作成
+    book = Book.new(book_params)
+    #データをデータベースに保存するためのsaveメソッド実行
+    book.save
+    #詳細画面へリダイレクト
+    redirect_to book_path(book.id)
   end
 
 
   def index
+    @books = Book.all
   end
 
   def show
+    @books = Book.find(params[:id])
   end
 
   def edit
+    @book = Book.find(params[:id])
   end
 
   private
   #ストロングパラメータ
-    def books_params
-      params.permit(:title,:body)
+    def book_params
+      params.require(:book).permit(:title,:body)
     end
+
 end

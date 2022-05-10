@@ -1,12 +1,12 @@
 <h1>Books</h1>
 <h2>NEW BOOK</h2>
 
-<%= form_with model: @books do |f| %>
+<%= form_with model: @book do |f| %>
 
-<h4>Title</h4>
+<p>Title</p>
     <%= f.text_field :title %>
-<h4>Body</h4>
+<p>Body</p>
     <%= f.text_area :body %>
 
     <%= f.submit 'Create Book' %>
-<% end %>    
+<% end %>
