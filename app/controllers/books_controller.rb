@@ -7,9 +7,12 @@ class BooksController < ApplicationController
     #データを受け取り新規登録するためのインスタンス作成
     book = Book.new(book_params)
     #データをデータベースに保存するためのsaveメソッド実行
-    book.save
-    #詳細画面へリダイレクト
-    redirect_to book_path(book.id)
+      if book.save
+    #詳細画面へリダイレクトし、フラッシュメッセージを表示
+    redirect_to book_path(book.id), notice: 'Book was successfully updated'
+      else
+        render new_book
+      end  
   end
 
 
