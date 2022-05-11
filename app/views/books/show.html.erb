@@ -1,8 +1,8 @@
 <p>Title:</p>
-<%= @books.title %>
+<%= @book.title %>
 <p>Body:</p>
-<%= @books.body %>
+<%= @book.body %>
 
-<%= link_to 'Edit', edit_book_path(@books.id) %>
-<%= link_to 'Back', :back %>
+<%= link_to 'Edit', edit_book_path(@book.id) %>
+<%= link_to 'Back', books_path %>
 
